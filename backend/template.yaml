@@ -1,0 +1,108 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Cloud Resume Challenge - Backend Infrastructure
+
+Globals:
+  Function:
+    Timeout: 10
+    MemorySize: 128
+    Runtime: python3.9
+    Architectures:
+      - x86_64
+    Tracing: Active
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+    AllowedValues:
+      - dev
+      - staging
+      - prod
+    Description: Environment name
+
+Resources:
+  VisitorCounterTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey:
+        Name: id
+        Type: String
+      SSESpecification:
+        SSEEnabled: true
+
+  VisitorCounterApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub '${Environment}-VisitorCounterApi'
+      StageName: !Ref Environment
+
+  VisitorCounterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub '${Environment}-VisitorCounterFunction'
+      CodeUri: .
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.12
+      Description: Increments and returns visitor count for resume website
+      Tracing: Active
+      Policies:
+        Statement:
+          - Effect: Allow
+            Action:
+              - dynamodb:GetItem
+              - dynamodb:PutItem
+              - dynamodb:UpdateItem
+              - dynamodb:DeleteItem
+              - dynamodb:Query
+              - dynamodb:Scan
+              - dynamodb:BatchGetItem
+              - dynamodb:BatchWriteItem
+              - dynamodb:DescribeTable
+              - dynamodb:ConditionCheckItem
+            Resource:
+              - !GetAtt VisitorCounterTable.Arn
+      Environment:
+        Variables:
+          TABLENAME: !Ref VisitorCounterTable
+      Events:
+        VisitorCounterApiPost:
+          Type: Api
+          Properties:
+            RestApiId: !Ref VisitorCounterApi
+            Path: /visitor-count
+            Method: POST
+        VisitorCounterApiGet:
+          Type: Api
+          Properties:
+            RestApiId: !Ref VisitorCounterApi
+            Path: /visitor-count
+            Method: GET
+      Tags:
+        Project: CloudResumeChallenge
+        Environment: !Ref Environment
+
+Outputs:
+  VisitorCounterApiUrl:
+    Description: API Gateway endpoint URL for visitor counter
+    Value: !Sub 'https://${VisitorCounterApi}.execute-api.${AWS::Region}.amazonaws.com/${Environment}/visitor-count'
+    Export:
+      Name: !Sub '${Environment}-VisitorCounterApiUrl'
+
+  VisitorCounterFunctionArn:
+    Description: Visitor Counter Lambda Function ARN
+    Value: !GetAtt VisitorCounterFunction.Arn
+    Export:
+      Name: !Sub '${Environment}-VisitorCounterFunctionArn'
+
+  VisitorCounterTableName:
+    Description: DynamoDB table name for visitor counter
+    Value: !Ref VisitorCounterTable
+    Export:
+      Name: !Sub '${Environment}-VisitorCounterTableName'
+
+  ApiId:
+    Description: API Gateway REST API ID
+    Value: !Ref VisitorCounterApi
+    Export:
+      Name: !Sub '${Environment}-ApiGatewayId'
