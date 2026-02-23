@@ -72,3 +72,17 @@ package-lock.json
 tmp/
 temp/
 *.tmp
+
+# Build artifacts
+deployment/
+*.zip
+*.dist-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
