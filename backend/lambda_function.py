@@ -1,59 +1,63 @@
 import json
 import boto3
-from decimal import Decimal
 import os
 
-# Initialize DynamoDB client
-dynamodb = boto3.resource('dynamodb')
-table_name = os.environ.get('TABLENAME', 'VisitorCounter')
+# Get region from environment or default to eu-west-2
+region = os.environ.get('AWS_REGION', os.environ.get('AWS_DEFAULT_REGION', 'eu-west-2'))
+dynamodb = boto3.resource('dynamodb', region_name=region)
+
+table_name = os.environ.get('TABLE_NAME', 'prod-VisitorCounter')
 table = dynamodb.Table(table_name)
 
 def lambda_handler(event, context):
-    """
-    Lambda function to track and return visitor count
     
-    This function:
-    1. Increments the visitor count in DynamoDB
-    2. Returns the updated count
-    3. Handles CORS headers for web requests
-    """
-    
-    try:
-        # Update visitor count atomically
-        response = table.update_item(
-            Key={
-                'id': 'visitor-count'
-            },
-            UpdateExpression='SET visit_count = if_not_exists(visit_count, :start) + :inc',
-            ExpressionAttributeValues={
-                ':inc': 1,
-                ':start': 0
-            },
-            ReturnValues='UPDATED_NEW'
-        )
-        
-        # Extract the updated count
-        count = int(response['Attributes']['visit_count'])
-        
-        # Return successful response with CORS headers
+    # Handle OPTIONS preflight request
+    if event.get('httpMethod') == 'OPTIONS':
         return {
             'statusCode': 200,
             'headers': {
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
+                'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+            },
+            'body': ''
+        }
+    
+    try:
+        # Get current count from DynamoDB
+        response = table.get_item(Key={'id': 'visitor_count'})
+        
+        if 'Item' in response:
+            current_count = int(response['Item']['count'])
+            new_count = current_count + 1
+        else:
+            new_count = 1
+        
+        # Update DynamoDB with new count
+        table.put_item(
+            Item={
+                'id': 'visitor_count',
+                'count': new_count
+            }
+        )
+        
+        # Return response with CORS headers
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token',
                 'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
                 'Content-Type': 'application/json'
             },
             'body': json.dumps({
-                'count': count,
+                'count': new_count,
                 'message': 'Visitor count updated successfully'
             })
         }
         
     except Exception as e:
-        print(f"Error updating visitor count: {str(e)}")
-        
-        # Return error response with CORS headers
+        print(f"Error: {str(e)}")
         return {
             'statusCode': 500,
             'headers': {
@@ -63,7 +67,7 @@ def lambda_handler(event, context):
                 'Content-Type': 'application/json'
             },
             'body': json.dumps({
-                'error': 'Failed to update visitor count',
+                'error': 'Internal server error',
                 'message': str(e)
             })
         }

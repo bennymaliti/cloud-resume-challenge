@@ -1,0 +1,22 @@
+# AWS SAM
+.aws-sam/
+samconfig.toml
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build artifacts
+deployment/
+*.zip
+*.dist-info/
+*.dist-info.zip
+
+# IDE
+.vscode/
