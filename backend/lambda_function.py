@@ -76,4 +76,4 @@ def lambda_handler(event, context):
                 'error': 'Internal server error',
                 'message': str(e)
             })
-        }
+        }#Redeploy with CORS - Mon, Feb 23, 2026  9:50:57 PM
