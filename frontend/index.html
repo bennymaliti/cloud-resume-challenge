@@ -18,19 +18,30 @@
             <span id="visitor-count" class="counter-number">Loading...</span>
         </div>
 
-        <!-- Header -->
-        <header>
-            <h1>BENNY MALITI</h1>
-            <p class="title">Cloud Engineer</p>
+        <!-- Header/Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1>BENNY MALITI</h1>
+                <p class="title">Cloud Engineer | AWS Certified Solutions Architect & Developer</p>
+                <div class="certifications-mini">
+                    <span class="cert-badge">☁️ AWS SAA</span>
+                    <span class="cert-badge">💻 AWS Developer</span>
+                    <span class="cert-badge">⚡ Azure Fundamentals</span>
+                </div>
+            </div>
             <div class="contact-info">
-                <a href="mailto:kmaliti@hotmail.com">📧 [email protected]</a> |
-                <a href="tel:07907740018">📱 07907740018</a> |
+                <a href="mailto:kmaliti@hotmail.com">📧 kmaliti@hotmail.com</a>
+                <span class="separator">|</span>
+                <a href="tel:07907740018">📱 07907740018</a>
+                <span class="separator">|</span>
                 <span>📍 Wigan, England, UK</span>
             </div>
             <div class="social-links">
-                <a href="https://linkedin.com/in/benny-maliti" target="_blank">🔗 LinkedIn</a> |
-                <a href="https://github.com/bennymaliti" target="_blank">💻 GitHub</a> |
-                <a href="https://bennymaliti.co.uk" target="_blank">🌐 Website</a>
+                <a href="https://linkedin.com/in/benny-maliti" target="_blank">🔗 LinkedIn</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/bennymaliti" target="_blank">💻 GitHub</a>
+                <span class="separator">|</span>
+                <a href="https://bennymaliti.co.uk" target="_blank">🌐 Portfolio</a>
             </div>
         </header>
 
@@ -38,33 +49,128 @@
         <section class="section">
             <h2>Professional Summary</h2>
             <p>
-                IT Professional with 6+ years of enterprise IT support experience transitioning to Cloud Engineering and DevOps. 
-                AWS Certified Solutions Architect and Developer with hands-on experience designing and deploying highly available, 
-                cost-optimized cloud architectures on AWS. Demonstrated ability to implement Infrastructure as Code (Terraform), 
-                automation (PowerShell, Python), and cloud administration across AWS and Microsoft Azure. Strong foundation in 
-                Microsoft 365, Active Directory, and Azure Entra ID administration. Seeking a Cloud Engineer or DevOps Engineer 
-                role to leverage technical skills and drive cloud transformation initiatives.
+                IT Professional with 6+ years managing IT infrastructure for 7,000+ users across government, utilities, and retail sectors, 
+                now transitioning to Cloud Engineering and DevOps. AWS Certified Solutions Architect and Developer with hands-on experience 
+                designing and deploying highly available, cost-optimized serverless architectures on AWS. Demonstrated ability to implement 
+                Infrastructure as Code (AWS SAM, Terraform), CI/CD pipelines (GitHub Actions), and automation (PowerShell, Python). 
+                Strong foundation in Microsoft 365, Active Directory, and Azure Entra ID administration. Seeking a Cloud Engineer or 
+                DevOps Engineer role to leverage technical skills and drive cloud transformation initiatives.
             </p>
+        </section>
+
+        <!-- Skills at a Glance -->
+        <section class="section">
+            <h2>Skills at a Glance</h2>
+            <div class="skills-grid">
+                <div class="skill-badge">
+                    <span class="skill-icon">☁️</span>
+                    <strong>Cloud Platforms</strong>
+                    <p>AWS • Azure</p>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon">🔧</span>
+                    <strong>Infrastructure as Code</strong>
+                    <p>Terraform • SAM • CloudFormation</p>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon">🐍</span>
+                    <strong>Programming</strong>
+                    <p>Python • PowerShell • Bash</p>
+                </div>
+                <div class="skill-badge">
+                    <span class="skill-icon">🚀</span>
+                    <strong>DevOps & CI/CD</strong>
+                    <p>GitHub Actions • Docker • Jenkins</p>
+                </div>
+            </div>
         </section>
 
         <!-- Certifications -->
         <section class="section">
             <h2>Certifications</h2>
-            <ul>
-                <li><strong>AWS Certified Solutions Architect – Associate</strong> (Valid)</li>
-                <li><strong>AWS Certified Developer – Associate</strong> (Valid)</li>
-                <li><strong>Microsoft Azure Fundamentals (AZ-900)</strong> (Valid)</li>
-                <li><strong>AWS Certified Solutions Architect – Professional</strong> (In progress)</li>
+            <ul class="cert-list">
+                <li><strong>AWS Certified Solutions Architect – Associate</strong> <span class="badge valid">Valid</span></li>
+                <li><strong>AWS Certified Developer – Associate</strong> <span class="badge valid">Valid</span></li>
+                <li><strong>Microsoft Azure Fundamentals (AZ-900)</strong> <span class="badge valid">Valid</span></li>
+                <li><strong>AWS Certified DevOps Engineer – Professional</strong> <span class="badge progress">Exam scheduled: Feb 28, 2026</span></li>
             </ul>
         </section>
 
-        <!-- Technical Skills -->
+        <!-- Cloud Engineering Projects -->
+        <section class="section">
+            <h2>Cloud Engineering Projects</h2>
+            
+            <div class="project featured">
+                <h3>Cloud Resume Challenge (AWS)</h3>
+                
+                <div class="project-meta">
+                    <span class="project-badge">🎯 Featured Project</span>
+                </div>
+                
+                <p class="project-subtitle">
+                    <strong>🎯 Challenge:</strong> Build a production-ready serverless resume with automated CI/CD deployment<br>
+                    <strong>🛠️ Technologies:</strong> AWS Lambda, DynamoDB, S3, CloudFront, API Gateway, SAM, Python, GitHub Actions<br>
+                    <strong>✨ Outcome:</strong> Fully automated deployment pipeline, 100% test coverage, ~$1/month cost
+                </p>
+                
+                <div class="project-links">
+                    <a href="https://bennymaliti.co.uk" target="_blank" class="project-link live">🌐 Live Demo</a>
+                    <a href="https://github.com/bennymaliti/cloud-resume-challenge" target="_blank" class="project-link github">💻 View Code</a>
+                </div>
+
+                <ul>
+                    <li>Built serverless resume website with real-time visitor counter using AWS Lambda (Python) and DynamoDB</li>
+                    <li>Implemented Infrastructure as Code using AWS SAM for reproducible deployments</li>
+                    <li>Configured API Gateway with CORS for secure frontend-backend communication</li>
+                    <li>Set up complete CI/CD pipeline with GitHub Actions for automated testing and deployment</li>
+                    <li>Deployed to London region (eu-west-2) with CloudFront CDN for global performance and HTTPS</li>
+                    <li>Achieved 100% test coverage with pytest and automated deployments on every code push</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Serverless Social Media Analytics Platform</h3>
+                
+                <p class="project-subtitle">
+                    <strong>🎯 Challenge:</strong> Process social media data at scale using event-driven architecture<br>
+                    <strong>🛠️ Technologies:</strong> AWS Lambda, DynamoDB, S3, SNS, CloudWatch, Python, Terraform<br>
+                    <strong>✨ Outcome:</strong> Scalable microservices architecture with 90%+ test coverage
+                </p>
+
+                <ul>
+                    <li>Designed and deployed microservices architecture for social media data processing</li>
+                    <li>Implemented event-driven workflows using Lambda and SNS for scalable data ingestion</li>
+                    <li>Built comprehensive monitoring and alerting using CloudWatch dashboards and alarms</li>
+                    <li>Automated infrastructure deployment using Terraform modules for compute, storage, and monitoring</li>
+                    <li>Achieved 90%+ test coverage with pytest for Lambda functions</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Healthcare Application Disaster Recovery</h3>
+                
+                <p class="project-subtitle">
+                    <strong>🎯 Challenge:</strong> Design multi-region DR solution for healthcare application<br>
+                    <strong>🛠️ Technologies:</strong> AWS EC2, RDS, Route 53, CloudFormation, Multi-Region Architecture<br>
+                    <strong>✨ Outcome:</strong> Automatic failover with validated RTO/RPO targets
+                </p>
+
+                <ul>
+                    <li>Designed multi-region disaster recovery solution with automatic failover capabilities</li>
+                    <li>Implemented RDS cross-region replication for database redundancy</li>
+                    <li>Configured Route 53 health checks and failover routing policies</li>
+                    <li>Documented DR procedures and conducted failover testing to validate RTO/RPO targets</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Technical Skills (Detailed) -->
         <section class="section">
             <h2>Technical Skills</h2>
             <div class="skills">
                 <div class="skill-category">
                     <h3>Cloud Platforms</h3>
-                    <p>AWS (Lambda, EC2, S3, DynamoDB, CloudFormation, CloudWatch, VPC), Microsoft Azure (Virtual Machines, Storage, Entra ID)</p>
+                    <p>AWS (Lambda, EC2, S3, DynamoDB, CloudFormation, CloudWatch, VPC, API Gateway, Route 53, CloudFront), Microsoft Azure (Virtual Machines, Storage, Entra ID)</p>
                 </div>
                 <div class="skill-category">
                     <h3>Infrastructure as Code</h3>
@@ -76,7 +182,7 @@
                 </div>
                 <div class="skill-category">
                     <h3>DevOps & CI/CD</h3>
-                    <p>Git, GitHub, GitHub Actions, Docker, Jenkins, Automation</p>
+                    <p>Git, GitHub, GitHub Actions, Docker, Jenkins, Automation, Pytest</p>
                 </div>
                 <div class="skill-category">
                     <h3>Microsoft Technologies</h3>
@@ -141,54 +247,12 @@
             </div>
         </section>
 
-        <!-- Cloud Projects -->
-        <section class="section">
-            <h2>Cloud Engineering Projects</h2>
-            
-            <div class="project">
-                <h3>Cloud Resume Challenge (AWS)</h3>
-                <p class="project-tech">Technologies: AWS Lambda, DynamoDB, S3, CloudFront, API Gateway, SAM, Terraform, Python, GitHub Actions</p>
-                <ul>
-                    <li>Built serverless resume website with visitor counter using AWS Lambda (Python) and DynamoDB</li>
-                    <li>Implemented Infrastructure as Code using AWS SAM and Terraform for reproducible deployments</li>
-                    <li>Configured API Gateway with CORS for secure frontend-backend communication</li>
-                    <li>Set up CI/CD pipeline with GitHub Actions for automated testing and deployment</li>
-                    <li>Deployed to London region (eu-west-2) with CloudFront CDN for global performance</li>
-                    <li>Total monthly cost: ~$0.50 (within AWS Free Tier limits)</li>
-                    <li><strong>Live Demo:</strong> <a href="https://bennymaliti.co.uk" target="_blank">bennymaliti.co.uk</a></li>
-                </ul>
-            </div>
-
-            <div class="project">
-                <h3>Serverless Social Media Analytics Platform</h3>
-                <p class="project-tech">Technologies: AWS Lambda, DynamoDB, S3, SNS, CloudWatch, Python, Terraform</p>
-                <ul>
-                    <li>Designed and deployed microservices architecture for social media data processing</li>
-                    <li>Implemented event-driven workflows using Lambda and SNS for scalable data ingestion</li>
-                    <li>Built comprehensive monitoring and alerting using CloudWatch dashboards and alarms</li>
-                    <li>Automated infrastructure deployment using Terraform modules for compute, storage, and monitoring</li>
-                    <li>Achieved 90%+ test coverage with pytest for Lambda functions</li>
-                </ul>
-            </div>
-
-            <div class="project">
-                <h3>Healthcare Application Disaster Recovery</h3>
-                <p class="project-tech">Technologies: AWS EC2, RDS, Route 53, CloudFormation, Multi-Region Architecture</p>
-                <ul>
-                    <li>Designed multi-region disaster recovery solution with automatic failover capabilities</li>
-                    <li>Implemented RDS cross-region replication for database redundancy</li>
-                    <li>Configured Route 53 health checks and failover routing policies</li>
-                    <li>Documented DR procedures and conducted failover testing to validate RTO/RPO targets</li>
-                </ul>
-            </div>
-        </section>
-
         <!-- Education -->
         <section class="section">
             <h2>Education</h2>
             <div class="education">
-                <h3>Master of Science (MSc) in Information Systems</h3>
-                <p>Manchester Metropolitan University | 2012 – 2013</p>
+                <h3>Bachelor of Science (BSc) in Computing</h3>
+                <p>University of Bolton | 2010 – 2013</p>
             </div>
         </section>
 
@@ -203,10 +267,25 @@
             </ul>
         </section>
 
+        <!-- Call to Action -->
+        <section class="section cta-section">
+            <h2>Let's Connect</h2>
+            <p class="cta-text">
+                I'm actively seeking <strong>Cloud Engineer</strong> and <strong>DevOps Engineer</strong> opportunities.<br>
+                Open to: Full-time roles • Contract positions • Freelance cloud projects
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:kmaliti@hotmail.com" class="cta-button primary">📧 Email Me</a>
+                <a href="https://linkedin.com/in/benny-maliti" class="cta-button secondary" target="_blank">💼 Connect on LinkedIn</a>
+                <a href="https://github.com/bennymaliti" class="cta-button secondary" target="_blank">💻 View GitHub</a>
+                <a href="#" class="cta-button tertiary" onclick="window.print(); return false;">📄 Download Resume</a>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer>
             <p>&copy; 2026 Benny Maliti. Built with AWS Lambda, DynamoDB, S3, and CloudFront.</p>
-            <p>Deployed in London (eu-west-2) | Infrastructure as Code with AWS SAM & Terraform</p>
+            <p>Deployed in London (eu-west-2) | Infrastructure as Code with AWS SAM | Automated CI/CD with GitHub Actions</p>
         </footer>
     </div>
 
