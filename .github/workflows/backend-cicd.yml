@@ -83,6 +83,7 @@ jobs:
             --no-fail-on-empty-changeset \
             --stack-name cloud-resume-backend \
             --region eu-west-2 \
+            --resolve-s3 \
             --capabilities CAPABILITY_IAM \
             --parameter-overrides Environment=prod
 
