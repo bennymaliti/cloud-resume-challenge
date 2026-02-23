@@ -72,4 +72,4 @@ jobs:
           echo "🚀 Frontend deployed successfully!"
           echo "🌐 Website: https://bennymaliti.co.uk"
           echo "📦 S3 Bucket: bennymaliti-resume"
-          echo "⚡ CloudFront: d1e4l8ghwf5jwr"
+          echo "⚡ CloudFront: E25MVXLHNDHI2T"
