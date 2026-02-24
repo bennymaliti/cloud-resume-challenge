@@ -283,7 +283,7 @@ Cloud Engineer | AWS Certified Solutions Architect & Developer
 - 🌐 **Website:** [bennymaliti.co.uk](https://bennymaliti.co.uk)
 - 💼 **LinkedIn:** [linkedin.com/in/benny-maliti](https://linkedin.com/in/benny-maliti)
 - 🐙 **GitHub:** [@bennymaliti](https://github.com/bennymaliti)
-- 📧 **Email:** kmaliti@hotmail.com
+- 📧 **Email:** benmaliti@hotmail.com
 
 ---
 
