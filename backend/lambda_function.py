@@ -2,22 +2,16 @@ import json
 import boto3
 import os
 
-# Cloud Resume Challenge - Visitor Counter Lambda Function
-# This Lambda function is triggered by API Gateway to update and retrieve the visitor count from DynamoDB.
-# It handles CORS preflight requests and returns the updated count in JSON format.
-# Lambda function code by Ben Maliti - https://bennymaliti.co.uk
-# Last updated: 23rd February 2026
-
-# Get region from environment or default to eu-west-2
+# Get region and table name from environment
 region = os.environ.get('AWS_REGION', os.environ.get('AWS_DEFAULT_REGION', 'eu-west-2'))
 dynamodb = boto3.resource('dynamodb', region_name=region)
 
-table_name = os.environ.get('TABLE_NAME', 'prod-VisitorCounter')
+table_name = os.environ.get('TABLE_NAME', 'cloud-resume-backend-VisitorCounterTable-H538VJ2919S0')
 table = dynamodb.Table(table_name)
 
 def lambda_handler(event, context):
     
-    # Handle OPTIONS preflight request
+    # CRITICAL: Handle OPTIONS preflight request FIRST
     if event.get('httpMethod') == 'OPTIONS':
         return {
             'statusCode': 200,
@@ -76,4 +70,4 @@ def lambda_handler(event, context):
                 'error': 'Internal server error',
                 'message': str(e)
             })
-        }#Redeploy with CORS - Mon, Feb 23, 2026  9:50:57 PM
+        }
