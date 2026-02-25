@@ -1,6 +1,6 @@
 # ☁️ Cloud Resume Challenge
 
-**🌐 Live Website:** https://bennymaliti.co.uk  
+**🌐 Live Website:** <a href="https://bennymaliti.co.uk" target="_blank">bennymaliti.co.uk</a>  
 **📍 Region:** Europe (London) - eu-west-2  
 **💰 Cost:** ~$1/month (within AWS Free Tier)
 
@@ -32,7 +32,7 @@ Production-ready serverless resume featuring a real-time visitor counter, automa
 
 ![Cloud Resume Challenge Architecture](docs/images/architecture-diagram.png)
 
-**[📊 View Full Interactive Architecture Diagram](https://bennymaliti.github.io/cloud-resume-challenge/docs/architecture-diagram.html)**
+**<a href="docs/architecture-diagram.html" target="_blank">📊 View Full Interactive Architecture Diagram</a>**
 
 ### High-Level Architecture
 ```
@@ -282,9 +282,9 @@ cloud-resume-challenge/
 **Benny Maliti**  
 Cloud Engineer | AWS Certified Solutions Architect & Developer
 
-- 🌐 **Website:** [bennymaliti.co.uk](https://bennymaliti.co.uk)
-- 💼 **LinkedIn:** [linkedin.com/in/benny-maliti](https://linkedin.com/in/benny-maliti)
-- 🐙 **GitHub:** [@bennymaliti](https://github.com/bennymaliti)
+- 🌐 **Website:** <a href="https://bennymaliti.co.uk" target="_blank">bennymaliti.co.uk</a>
+- 💼 **LinkedIn:** <a href="https://linkedin.com/in/benny-maliti" target="_blank">linkedin.com/in/benny-maliti</a>
+- 🐙 **GitHub:** <a href="https://github.com/bennymaliti" target="_blank">@bennymaliti</a>
 - 📧 **Email:** benmaliti@hotmail.com
 
 ---
