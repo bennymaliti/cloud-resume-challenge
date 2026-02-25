@@ -30,7 +30,9 @@ Production-ready serverless resume featuring a real-time visitor counter, automa
 
 ## 🏗️ Architecture
 
-**[📊 View Full Interactive Architecture Diagram](docs/architecture-diagram.html)**
+![Cloud Resume Challenge Architecture](docs/images/architecture-diagram.png)
+
+**[📊 View Full Interactive Architecture Diagram](https://bennymaliti.github.io/cloud-resume-challenge/docs/architecture-diagram.html)**
 
 ### High-Level Architecture
 ```
