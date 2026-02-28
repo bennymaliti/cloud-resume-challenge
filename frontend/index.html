@@ -37,11 +37,11 @@
                 <span>📍 Wigan, England, UK</span>
             </div>
             <div class="social-links">
-                <a href="https://linkedin.com/in/benny-maliti" target="_blank">🔗 LinkedIn</a>
+                <a href="https://linkedin.com/in/bennymaliti" target="_blank" rel="noopener">🔗 LinkedIn</a>
                 <span class="separator">|</span>
-                <a href="https://github.com/bennymaliti" target="_blank">💻 GitHub</a>
+                <a href="https://github.com/bennymaliti" target="_blank" rel="noopener">💻 GitHub</a>
                 <span class="separator">|</span>
-                <a href="https://bennymaliti.co.uk" target="_blank">🌐 Portfolio</a>
+                <a href="https://bennymaliti.co.uk" target="_blank" rel="noopener">🌐 Portfolio</a>
             </div>
         </header>
 
@@ -114,8 +114,8 @@
                 </p>
                 
                 <div class="project-links">
-                    <a href="https://bennymaliti.co.uk" target="_blank" class="project-link live">🌐 Live Demo</a>
-                    <a href="https://github.com/bennymaliti/cloud-resume-challenge" target="_blank" class="project-link github">💻 View Code</a>
+                    <a href="https://bennymaliti.co.uk" target="_blank" rel="noopener" class="project-link live">🌐 Live Demo</a>
+                    <a href="https://github.com/bennymaliti/cloud-resume-challenge" target="_blank" rel="noopener" class="project-link github">💻 View Code</a>
                 </div>
 
                 <ul>
@@ -146,31 +146,44 @@
                 </ul>
             </div>
 
-            <div class="project">
-                <h3>Healthcare Application Disaster Recovery</h3>
-                
-                <p class="project-subtitle">
-                    <strong>🎯 Challenge:</strong> Design multi-region DR solution for healthcare application<br>
-                    <strong>🛠️ Technologies:</strong> AWS EC2, RDS, Route 53, CloudFormation, Multi-Region Architecture<br>
-                    <strong>✨ Outcome:</strong> Automatic failover with validated RTO/RPO targets
-                </p>
+    <div class="project featured">
+    <h3>Healthcare Application Disaster Recovery (AWS)</h3>
+    
+    <div class="project-meta">
+        <span class="project-badge">🎯 Featured Project</span>
+    </div>
+    
+    <p class="project-subtitle">
+        <strong>🎯 Challenge:</strong> Build production-grade multi-region disaster recovery infrastructure for healthcare applications with 15-minute RTO and 1-hour RPO<br>
+        <strong>🛠️ Technologies:</strong> Terraform, AWS (Aurora MySQL, ECS Fargate, S3, Route 53, WAF, GuardDuty, AWS Backup, Secrets Manager), Docker, GitHub Actions, Node.js<br>
+        <strong>✨ Outcome:</strong> Fully automated DR infrastructure with cross-region replication, CI/CD pipelines, and enterprise security controls
+    </p>
+    
+    <div class="project-links">
+        <a href="https://github.com/bennymaliti/healthcare-dr-aws" target="_blank" rel="noopener" class="project-link github">💻 View Code</a>
+    </div>
 
-                <ul>
-                    <li>Designed multi-region disaster recovery solution with automatic failover capabilities</li>
-                    <li>Implemented RDS cross-region replication for database redundancy</li>
-                    <li>Configured Route 53 health checks and failover routing policies</li>
-                    <li>Documented DR procedures and conducted failover testing to validate RTO/RPO targets</li>
-                </ul>
-            </div>
+    <ul>
+        <li>Built <strong>11 modular Terraform modules</strong> for production-grade multi-region infrastructure (eu-west-2 London, eu-west-1 Ireland)</li>
+        <li>Implemented <strong>Aurora MySQL cross-region replication</strong> with automatic failover capabilities achieving Pilot Light DR strategy</li>
+        <li>Configured <strong>S3 cross-region replication</strong> for healthcare data with KMS encryption and versioning</li>
+        <li>Deployed containerized <strong>Node.js application on ECS Fargate</strong> with Application Load Balancer and auto-scaling</li>
+        <li>Implemented <strong>WAF with OWASP Top 10</strong> protection rules and <strong>GuardDuty</strong> threat detection for enterprise security</li>
+        <li>Created <strong>3 GitHub Actions CI/CD pipelines</strong> for Terraform validation, container builds with Trivy scanning, and DR validation testing</li>
+        <li>Achieved <strong>15-minute RTO</strong> and <strong>1-hour RPO</strong> disaster recovery targets with documented runbooks</li>
+        <li>Set up <strong>AWS Backup</strong> with cross-region vault copies and 35-day retention for compliance requirements</li>
+    </ul>
+</div>        
+
         </section>
-
         <!-- Technical Skills (Detailed) -->
         <section class="section">
             <h2>Technical Skills</h2>
             <div class="skills">
                 <div class="skill-category">
                     <h3>Cloud Platforms</h3>
-                    <p>AWS (Lambda, EC2, S3, DynamoDB, CloudFormation, CloudWatch, VPC, API Gateway, Route 53, CloudFront), Microsoft Azure (Virtual Machines, Storage, Entra ID)</p>
+                    <p>AWS (Lambda, EC2, S3, DynamoDB, Aurora MySQL, CloudFormation, CloudWatch, VPC, API Gateway, Route 53, CloudFront, WAF, GuardDuty, AWS Backup, Secrets Manager, SNS, KMS)</p>
+                    <p>Microsoft Azure (Virtual Machines, Storage, Entra ID)</p>
                 </div>
                 <div class="skill-category">
                     <h3>Infrastructure as Code</h3>
@@ -190,7 +203,7 @@
                 </div>
                 <div class="skill-category">
                     <h3>Monitoring & Logging</h3>
-                    <p>CloudWatch, Azure Monitor, Prometheus, Grafana, ELK Stack</p>
+                    <p>CloudWatch, Azure Monitor, Prometheus, Grafana, ELK Stack, AWS Cost Explorer, Budget Alerts</p>
                 </div>
             </div>
         </section>
@@ -266,8 +279,8 @@
             </p>
             <div class="cta-buttons">
                 <a href="mailto:benmaliti@hotmail.com" class="cta-button primary">📧 Email Me</a>
-                <a href="https://linkedin.com/in/benny-maliti" class="cta-button secondary" target="_blank">💼 Connect on LinkedIn</a>
-                <a href="https://github.com/bennymaliti" class="cta-button secondary" target="_blank">💻 View GitHub</a>
+                <a href="https://linkedin.com/in/benny-maliti" class="cta-button secondary" target="_blank" rel="noopener">💼 Connect on LinkedIn</a>
+                <a href="https://github.com/bennymaliti" class="cta-button secondary" target="_blank" rel="noopener">💻 View GitHub</a>
                 <a href="#" class="cta-button tertiary" onclick="window.print(); return false;">📄 Download Resume</a>
             </div>
         </section>
