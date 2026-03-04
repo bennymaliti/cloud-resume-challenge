@@ -8,6 +8,80 @@
     <meta name="author" content="Benny Maliti">
     <title>Benny Maliti - Cloud Engineer Resume</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Projects Dropdown ── */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-dropdown-toggle {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font: inherit;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-dropdown-toggle::after {
+            content: '▾';
+            font-size: 0.75em;
+            transition: transform 0.2s;
+        }
+        .nav-dropdown:hover .nav-dropdown-toggle::after,
+        .nav-dropdown.open .nav-dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: #1a1f36;
+            border: 1px solid rgba(255,153,0,0.25);
+            border-radius: 10px;
+            min-width: 260px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            z-index: 1000;
+            overflow: hidden;
+            padding: 6px 0;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown.open .nav-dropdown-menu {
+            display: block;
+        }
+        .nav-dropdown-menu a {
+            display: flex;
+            flex-direction: column;
+            padding: 12px 18px;
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: background 0.15s;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-dropdown-menu a:last-child { border-bottom: none; }
+        .nav-dropdown-menu a:hover { background: rgba(255,153,0,0.1); }
+        .nav-dropdown-menu .proj-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #FF9900;
+            margin-bottom: 2px;
+        }
+        .nav-dropdown-menu .proj-sub {
+            font-size: 0.78rem;
+            color: #888;
+        }
+        /* ── Project page link button ── */
+        .project-link.page {
+            background: linear-gradient(135deg, #FF9900, #ffb733);
+            color: #000 !important;
+            font-weight: 600;
+        }
+        .project-link.page:hover { opacity: 0.9; }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -41,7 +115,26 @@
                 <span class="separator">|</span>
                 <a href="https://github.com/bennymaliti" target="_blank" rel="noopener">💻 GitHub</a>
                 <span class="separator">|</span>
-                <a href="https://bennymaliti.co.uk" target="_blank" rel="noopener">🌐 Portfolio</a>
+                <!-- Projects Dropdown -->
+                <div class="nav-dropdown" id="projectsDropdown">
+                    <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        🗂️ Projects
+                    </button>
+                    <div class="nav-dropdown-menu" role="menu">
+                        <a href="/projects/reddit-analytics/" target="_blank" rel="noopener">
+                            <span class="proj-title">⭐ Reddit Analytics Platform</span>
+                            <span class="proj-sub">Serverless · Kinesis · NLP · Terraform · CI/CD</span>
+                        </a>
+                        <a href="https://github.com/bennymaliti/healthcare-dr-aws" target="_blank" rel="noopener">
+                            <span class="proj-title">🏥 Healthcare DR Solution</span>
+                            <span class="proj-sub">Multi-region · Aurora MySQL · ECS Fargate · Terraform</span>
+                        </a>
+                        <a href="https://bennymaliti.co.uk" rel="noopener">
+                            <span class="proj-title">☁️ Cloud Resume Challenge</span>
+                            <span class="proj-sub">Lambda · DynamoDB · S3 · CloudFront · SAM</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -49,12 +142,11 @@
         <section class="section">
             <h2>Professional Summary</h2>
             <p>
-                IT Professional with 6+ years managing IT infrastructure for 7,000+ users across government, utilities, and retail sectors, 
-                now transitioning to Cloud Engineering and DevOps. AWS Certified Solutions Architect and Developer with hands-on experience 
-                designing and deploying highly available, cost-optimized serverless architectures on AWS. Demonstrated ability to implement 
-                Infrastructure as Code (AWS SAM, Terraform), CI/CD pipelines (GitHub Actions), and automation (PowerShell, Python). 
-                Strong foundation in Microsoft 365, Active Directory, and Azure Entra ID administration. Seeking a Cloud Engineer or 
-                DevOps Engineer role to leverage technical skills and drive cloud transformation initiatives.
+                IT Professional with 6+ years managing IT infrastructure for 7,000+ users across government, utilities, and retail sectors,
+                now transitioning to Cloud Engineering and DevOps. AWS Certified Solutions Architect and Developer with hands-on experience
+                designing and deploying production-grade serverless platforms, multi-region disaster recovery systems, and real-time data
+                pipelines on AWS. Proficient in Terraform IaC, GitHub Actions CI/CD, Python, and a wide range of AWS services. Seeking a
+                Cloud Engineer or DevOps Engineer role to leverage technical skills and drive cloud transformation initiatives.
             </p>
         </section>
 
@@ -92,32 +184,54 @@
                 <li><strong>AWS Certified Solutions Architect – Associate</strong> <span class="badge valid">Valid</span></li>
                 <li><strong>AWS Certified Developer – Associate</strong> <span class="badge valid">Valid</span></li>
                 <li><strong>Microsoft Azure Fundamentals (AZ-900)</strong> <span class="badge valid">Valid</span></li>
-                <li><strong>AWS Solutions Architect – Professional Exams</strong> <span class="badge progress">Exam scheduled: Feb 28, 2026</span></li>
+                <li><strong>AWS Solutions Architect – Professional</strong> <span class="badge progress">Exam scheduled: Mar 2026</span></li>
             </ul>
         </section>
 
         <!-- Cloud Engineering Projects -->
         <section class="section">
             <h2>Cloud Engineering Projects</h2>
-            
+
+            <!-- Reddit Analytics — NEW FEATURED -->
             <div class="project featured">
-                <h3>Cloud Resume Challenge (AWS)</h3>
-                
+                <h3>Reddit Analytics Platform ⭐</h3>
                 <div class="project-meta">
                     <span class="project-badge">🎯 Featured Project</span>
                 </div>
-                
+                <p class="project-subtitle">
+                    <strong>🎯 Challenge:</strong> Build a production-grade real-time serverless analytics platform processing Reddit data through 7 Lambda microservices<br>
+                    <strong>🛠️ Technologies:</strong> Python 3.12, AWS Lambda, Kinesis, DynamoDB, API Gateway, Cognito, Amazon Comprehend, Glue, Athena, Terraform, GitHub Actions<br>
+                    <strong>✨ Outcome:</strong> Fully operational real-time pipeline — sentiment analysis, trending topics, engagement scoring — all deployed with IaC and CI/CD
+                </p>
+                <div class="project-links">
+                    <a href="/projects/reddit-analytics/" rel="noopener" class="project-link page">🌐 View Project Page</a>
+                    <a href="https://github.com/bennymaliti/reddit-analytics-platform" target="_blank" rel="noopener" class="project-link github">💻 View Code</a>
+                </div>
+                <ul>
+                    <li>Architected 7 Lambda microservices (Python 3.12, ARM64 Graviton2) processing real-time Reddit data via Kinesis Data Streams</li>
+                    <li>Implemented Amazon Comprehend NLP for sentiment analysis, key phrase extraction, and entity detection across 7 subreddits</li>
+                    <li>Built 8 modular Terraform IaC modules managing 17 AWS services with S3 remote state and DynamoDB locking</li>
+                    <li>Engineered 4-stage GitHub Actions CI/CD pipeline: Black + Flake8 + pytest (moto integration tests) + Terraform validate/plan/apply</li>
+                    <li>Designed 5-table DynamoDB schema with GSIs for engagement scoring, sentiment querying, and trending topic detection</li>
+                    <li>Configured full observability: CloudWatch dashboards, X-Ray distributed tracing, SQS DLQs, SNS alerts</li>
+                </ul>
+            </div>
+
+            <!-- Cloud Resume -->
+            <div class="project featured">
+                <h3>Cloud Resume Challenge (AWS)</h3>
+                <div class="project-meta">
+                    <span class="project-badge">🎯 Featured Project</span>
+                </div>
                 <p class="project-subtitle">
                     <strong>🎯 Challenge:</strong> Build a production-ready serverless resume with automated CI/CD deployment<br>
                     <strong>🛠️ Technologies:</strong> AWS Lambda, DynamoDB, S3, CloudFront, API Gateway, SAM, Python, GitHub Actions<br>
                     <strong>✨ Outcome:</strong> Fully automated deployment pipeline, 100% test coverage, ~$1/month cost
                 </p>
-                
                 <div class="project-links">
                     <a href="https://bennymaliti.co.uk" target="_blank" rel="noopener" class="project-link live">🌐 Live Demo</a>
                     <a href="https://github.com/bennymaliti/cloud-resume-challenge" target="_blank" rel="noopener" class="project-link github">💻 View Code</a>
                 </div>
-
                 <ul>
                     <li>Built serverless resume website with real-time visitor counter using AWS Lambda (Python) and DynamoDB</li>
                     <li>Implemented Infrastructure as Code using AWS SAM for reproducible deployments</li>
@@ -128,66 +242,46 @@
                 </ul>
             </div>
 
-            <div class="project">
-                <h3>Serverless Social Media Analytics Platform</h3>
-                
+            <!-- Healthcare DR -->
+            <div class="project featured">
+                <h3>Healthcare Application Disaster Recovery (AWS)</h3>
+                <div class="project-meta">
+                    <span class="project-badge">🎯 Featured Project</span>
+                </div>
                 <p class="project-subtitle">
-                    <strong>🎯 Challenge:</strong> Process social media data at scale using event-driven architecture<br>
-                    <strong>🛠️ Technologies:</strong> AWS Lambda, DynamoDB, S3, SNS, CloudWatch, Python, Terraform<br>
-                    <strong>✨ Outcome:</strong> Scalable microservices architecture with 90%+ test coverage
+                    <strong>🎯 Challenge:</strong> Build production-grade multi-region disaster recovery infrastructure for healthcare applications with 15-minute RTO and 1-hour RPO<br>
+                    <strong>🛠️ Technologies:</strong> Terraform, AWS (Aurora MySQL, ECS Fargate, S3, Route 53, WAF, GuardDuty, AWS Backup, Secrets Manager), Docker, GitHub Actions, Node.js<br>
+                    <strong>✨ Outcome:</strong> Fully automated DR infrastructure with cross-region replication, CI/CD pipelines, and enterprise security controls
                 </p>
-
+                <div class="project-links">
+                    <a href="https://github.com/bennymaliti/healthcare-dr-aws" target="_blank" rel="noopener" class="project-link github">💻 View Code</a>
+                </div>
                 <ul>
-                    <li>Designed and deployed microservices architecture for social media data processing</li>
-                    <li>Implemented event-driven workflows using Lambda and SNS for scalable data ingestion</li>
-                    <li>Built comprehensive monitoring and alerting using CloudWatch dashboards and alarms</li>
-                    <li>Automated infrastructure deployment using Terraform modules for compute, storage, and monitoring</li>
-                    <li>Achieved 90%+ test coverage with pytest for Lambda functions</li>
+                    <li>Built <strong>11 modular Terraform modules</strong> for production-grade multi-region infrastructure (eu-west-2 London, eu-west-1 Ireland)</li>
+                    <li>Implemented <strong>Aurora MySQL cross-region replication</strong> with automatic failover capabilities achieving Pilot Light DR strategy</li>
+                    <li>Configured <strong>S3 cross-region replication</strong> for healthcare data with KMS encryption and versioning</li>
+                    <li>Deployed containerized <strong>Node.js application on ECS Fargate</strong> with Application Load Balancer and auto-scaling</li>
+                    <li>Implemented <strong>WAF with OWASP Top 10</strong> protection rules and <strong>GuardDuty</strong> threat detection for enterprise security</li>
+                    <li>Created <strong>3 GitHub Actions CI/CD pipelines</strong> for Terraform validation, container builds with Trivy scanning, and DR validation testing</li>
+                    <li>Achieved <strong>15-minute RTO</strong> and <strong>1-hour RPO</strong> disaster recovery targets with documented runbooks</li>
+                    <li>Set up <strong>AWS Backup</strong> with cross-region vault copies and 35-day retention for compliance requirements</li>
                 </ul>
             </div>
 
-    <div class="project featured">
-    <h3>Healthcare Application Disaster Recovery (AWS)</h3>
-    
-    <div class="project-meta">
-        <span class="project-badge">🎯 Featured Project</span>
-    </div>
-    
-    <p class="project-subtitle">
-        <strong>🎯 Challenge:</strong> Build production-grade multi-region disaster recovery infrastructure for healthcare applications with 15-minute RTO and 1-hour RPO<br>
-        <strong>🛠️ Technologies:</strong> Terraform, AWS (Aurora MySQL, ECS Fargate, S3, Route 53, WAF, GuardDuty, AWS Backup, Secrets Manager), Docker, GitHub Actions, Node.js<br>
-        <strong>✨ Outcome:</strong> Fully automated DR infrastructure with cross-region replication, CI/CD pipelines, and enterprise security controls
-    </p>
-    
-    <div class="project-links">
-        <a href="https://github.com/bennymaliti/healthcare-dr-aws" target="_blank" rel="noopener" class="project-link github">💻 View Code</a>
-    </div>
-
-    <ul>
-        <li>Built <strong>11 modular Terraform modules</strong> for production-grade multi-region infrastructure (eu-west-2 London, eu-west-1 Ireland)</li>
-        <li>Implemented <strong>Aurora MySQL cross-region replication</strong> with automatic failover capabilities achieving Pilot Light DR strategy</li>
-        <li>Configured <strong>S3 cross-region replication</strong> for healthcare data with KMS encryption and versioning</li>
-        <li>Deployed containerized <strong>Node.js application on ECS Fargate</strong> with Application Load Balancer and auto-scaling</li>
-        <li>Implemented <strong>WAF with OWASP Top 10</strong> protection rules and <strong>GuardDuty</strong> threat detection for enterprise security</li>
-        <li>Created <strong>3 GitHub Actions CI/CD pipelines</strong> for Terraform validation, container builds with Trivy scanning, and DR validation testing</li>
-        <li>Achieved <strong>15-minute RTO</strong> and <strong>1-hour RPO</strong> disaster recovery targets with documented runbooks</li>
-        <li>Set up <strong>AWS Backup</strong> with cross-region vault copies and 35-day retention for compliance requirements</li>
-    </ul>
-</div>        
-
         </section>
-        <!-- Technical Skills (Detailed) -->
+
+        <!-- Technical Skills -->
         <section class="section">
             <h2>Technical Skills</h2>
             <div class="skills">
                 <div class="skill-category">
                     <h3>Cloud Platforms</h3>
-                    <p>AWS (Lambda, EC2, S3, DynamoDB, Aurora MySQL, CloudFormation, CloudWatch, VPC, API Gateway, Route 53, CloudFront, WAF, GuardDuty, AWS Backup, Secrets Manager, SNS, KMS)</p>
+                    <p>AWS (Lambda, EC2, S3, DynamoDB, Aurora MySQL, Kinesis, ECR, CloudFormation, CloudWatch, VPC, API Gateway, Route 53, CloudFront, WAF, GuardDuty, Secrets Manager, SNS, SQS, Comprehend, Glue, Athena, KMS, X-Ray, EventBridge)</p>
                     <p>Microsoft Azure (Virtual Machines, Storage, Entra ID)</p>
                 </div>
                 <div class="skill-category">
                     <h3>Infrastructure as Code</h3>
-                    <p>Terraform, AWS SAM, AWS CloudFormation, ARM Templates</p>
+                    <p>Terraform (8+ modules), AWS SAM, AWS CloudFormation, ARM Templates</p>
                 </div>
                 <div class="skill-category">
                     <h3>Programming & Scripting</h3>
@@ -195,15 +289,15 @@
                 </div>
                 <div class="skill-category">
                     <h3>DevOps & CI/CD</h3>
-                    <p>Git, GitHub, GitHub Actions, Docker, Jenkins, Automation, Pytest</p>
+                    <p>Git, GitHub Actions, Docker, Jenkins, Trivy, pytest, moto (AWS mocking)</p>
                 </div>
                 <div class="skill-category">
                     <h3>Microsoft Technologies</h3>
                     <p>Microsoft 365 Administration, Azure Entra ID (Active Directory), Exchange Online, Intune, SharePoint, Teams</p>
                 </div>
                 <div class="skill-category">
-                    <h3>Monitoring & Logging</h3>
-                    <p>CloudWatch, Azure Monitor, Prometheus, Grafana, ELK Stack, AWS Cost Explorer, Budget Alerts</p>
+                    <h3>Monitoring & Observability</h3>
+                    <p>CloudWatch, AWS X-Ray, GuardDuty, WAF, KMS, Secrets Manager, AWS Cost Explorer</p>
                 </div>
             </div>
         </section>
@@ -211,7 +305,7 @@
         <!-- Professional Experience -->
         <section class="section">
             <h2>Professional Experience</h2>
-            
+
             <div class="job">
                 <h3>IT Operations Analyst</h3>
                 <p class="job-details">Ricoh UK | May 2025 – Present</p>
@@ -230,7 +324,6 @@
                     <li>Managed Active Directory user accounts, group policies, and permissions</li>
                     <li>Resolved hardware, software, and network connectivity issues for Windows and Mac environments</li>
                     <li>Assisted with server maintenance and system updates during scheduled maintenance windows</li>
-                    
                 </ul>
             </div>
 
@@ -241,11 +334,8 @@
                     <li>Provided second-line IT support for internal systems and applications</li>
                     <li>Administered user accounts, permissions, and access controls</li>
                     <li>Administered and maintained IT infrastructure, including servers, networks, and cloud services</li>
-                    
                 </ul>
             </div>
-
-            
         </section>
 
         <!-- Education -->
@@ -259,7 +349,7 @@
             </div>
         </section>
 
-        <!-- Additional Information -->
+        <!-- Professional Development -->
         <section class="section">
             <h2>Professional Development</h2>
             <ul>
@@ -279,7 +369,7 @@
             </p>
             <div class="cta-buttons">
                 <a href="mailto:benmaliti@hotmail.com" class="cta-button primary">📧 Email Me</a>
-                <a href="https://linkedin.com/in/benny-maliti" class="cta-button secondary" target="_blank" rel="noopener">💼 Connect on LinkedIn</a>
+                <a href="https://linkedin.com/in/bennymaliti" class="cta-button secondary" target="_blank" rel="noopener">💼 Connect on LinkedIn</a>
                 <a href="https://github.com/bennymaliti" class="cta-button secondary" target="_blank" rel="noopener">💻 View GitHub</a>
                 <a href="#" class="cta-button tertiary" onclick="window.print(); return false;">📄 Download Resume</a>
             </div>
@@ -294,5 +384,16 @@
 
     <!-- Visitor Counter Script -->
     <script src="script.js"></script>
+    <script>
+        // Projects dropdown toggle for mobile tap
+        const dropdown = document.getElementById('projectsDropdown');
+        const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+        toggle.addEventListener('click', () => {
+            dropdown.classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) dropdown.classList.remove('open');
+        });
+    </script>
 </body>
 </html>
