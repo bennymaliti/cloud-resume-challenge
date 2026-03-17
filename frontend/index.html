@@ -332,4 +332,22 @@
     </div>
 
     <!-- Visitor Counter Script -->
-    <script data
+    <script src="script.js"></script>
+    
+    <!-- Project Toggle Script -->
+    <script>
+        function toggleProject(projectId) {
+            const content = document.getElementById(projectId);
+            const icon = document.querySelector(`[onclick="toggleProject('${projectId}')"] .expand-icon`);
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                icon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '▶';
+            }
+        }
+    </script>
+</body>
+</html>
