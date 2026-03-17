@@ -11,13 +11,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Visitor Counter -->
-        <div class="visitor-counter">
-            <span class="counter-icon">👁️</span>
-            <span class="counter-text">Visitor Count: </span>
-            <span id="visitor-count" class="counter-number">Loading...</span>
-        </div>
-
         <!-- Header/Hero Section -->
         <header class="hero">
             <div class="hero-content">
@@ -322,6 +315,13 @@
                 <a href="https://github.com/bennymaliti" class="cta-button secondary" target="_blank" rel="noopener">💻 View GitHub</a>
                 <a href="Benny_Maliti_Cloud_Engineer_CV.pdf" class="cta-button tertiary" download>📄 Download Resume</a>
             </div>
+            
+            <!-- Visitor Counter -->
+            <div class="visitor-counter" style="margin-top: 2rem; text-align: center;">
+                <span class="counter-icon">👁️</span>
+                <span class="counter-text">Visitor Count: </span>
+                <span id="visitor-count" class="counter-number">Loading...</span>
+            </div>
         </section>
 
         <!-- Footer -->
@@ -332,9 +332,4 @@
     </div>
 
     <!-- Visitor Counter Script -->
-    <script src="script.js"></script>
-    
-    <!-- Project Toggle Script -->
-    <script>
-        function toggleProject(projectId) {
-            const content = document.getElementById(projectId);
+    <script data
