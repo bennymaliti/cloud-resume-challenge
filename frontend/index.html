@@ -317,7 +317,7 @@
             </div>
             
             <!-- Visitor Counter -->
-            <div class="visitor-counter" style="margin-top: 2rem; text-align: center;">
+            <div class="visitor-counter">
                 <span class="counter-icon">👁️</span>
                 <span class="counter-text">Visitor Count: </span>
                 <span id="visitor-count" class="counter-number">Loading...</span>
@@ -340,4 +340,12 @@
             const content = document.getElementById(projectId);
             const icon = document.querySelector(`[onclick="toggleProject('${projectId}')"] .expand-icon`);
             
-            if (c
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                icon.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '▶';
+            }
+        }
+    </script>
